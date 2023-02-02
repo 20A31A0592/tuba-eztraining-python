@@ -1,0 +1,340 @@
+
+#List is a data type in python which contains multiple types of data
+#Duplication of the data is possible in a list
+
+EXAMPLE:
+
+>>>l=[1,2,3,5.67,"tuba","shah"]
+>>>l
+       [1, 2, 3, 5.67, 'tuba', 'shah']
+>>>type(l)
+       <class 'list'>
+
+#The list can be accessed through indexing and the index starts from 0
+>>>l=[1,2,3,5.67,"tuba","shah"]
+>>>l[3]
+       5.67
+>>>l[4]
+       'tuba'
+>>>l[6]
+	Traceback (most recent call last):
+ 	 File "<pyshell#5>", line 1, in <module>
+    	l[6]
+	IndexError: list index out of range
+
+SLICING
+
+#Displays a set of elements from the start index to last but one index   l[start:stop:step]
+>>>l[1:5]
+      [2, 3, 5.67, 'tuba']
+>>>l[4:5]
+       ['tuba']
+>>>l[:5]
+       [1, 2, 3, 5.67, 'tuba']
+>>>l[:0]
+       []
+
+NEGATIVE SLICING
+
+#Access the list from the last position
+#start position must be greater than the end position to slice the list
+>>>l=[1,2,3,5.67,"tuba","shah"]
+>>>l[-1]
+       'shah'
+>>>l[-3:-1]
+      [5.67, 'tuba']
+>>>l[::-1]  //reverses the list [start:stop:step]
+       ['shah', 'tuba', 5.67, 3, 2, 1]
+>>>l[:-1]   //prints the list from 0 to -2 i.e last but one
+       [1, 2, 3, 5.67, 'tuba']
+>>>l[-2:0]   // the direction of the traversal gets confused so empty list gets printed
+       []
+>>>l[::-2]
+       ['shah', 5.67, 2]
+>>>l[2:-2]
+       [3, 5.67]
+
+FUNCTIONS OF LIST
+
+1.   append() = adds an element to an existing list
+      adds the element at the end of the list
+>>>l
+      [1, 2, 3, 5.67, 'tuba', 'shah']
+>>>l.append(200)
+       l
+       [1, 2, 3, 5.67, 'tuba', 'shah', 200]
+
+2.   extend() = adds a list or set of elements to an existing list and adds at the end
+>>>l.extend([12,30])
+>>>l
+      [1, 2, 3, 5.67, 'tuba', 'shah', 200, 12, 30] 
+
+3.   insert() = adds the element at a specified particular index
+>>>l.insert(2,34) // insert(index,element)
+>>>l
+       [1, 2, 34, 3, 5.67, 'tuba', 'shah', 200, 12, 30]
+>>>l.insert(-2,"ooh")
+>>>l
+       [1, 2, 3, 5.67, 'tuba', 'shah', 'ooh', 12, 30]
+4.   remove() = removes an item or element from the list
+>>>l.remove(34)  // takes a single value
+>>>l
+       [1, 2, 3, 5.67, 'tuba', 'shah', 200, 12, 30]
+
+5.    pop() = removes or deletes an item at a specified index
+>>>l.pop(6)  //takes a single index
+       200
+>>>l
+       [1, 2, 3, 5.67, 'tuba', 'shah', 12, 30]
+
+6.    index() = returns the index of the specified value
+>>>l.index(30)
+       7
+
+7.    sort() = sorts the list in ascending order  //supports single data type
+ >>>l.sort()
+	Traceback (most recent call last):
+  	File "<pyshell#32>", line 1, in <module>
+    	l.sort()
+	TypeError: '<' not supported between instances of 'str' and 'float'
+
+8.    count() = returns the count of a particular value
+>>>l.count("tuba")
+      1
+
+9.    len() = returns the total length of the list
+>>>len(l)
+      8
+
+10.  copy() = copies the list into another list
+>>>b=l.copy()
+>>>b
+      [1, 2, 3, 5.67, 'tuba', 'shah', 12, 30]
+
+11.  reverse() = reverses the list
+>>>l.reverse()
+>>>l
+       [30, 12, 'shah', 'tuba', 5.67, 3, 2, 1]
+
+12.  clear() = empties the list
+>>>b.clear()
+>>>b
+       []
+
+LIST COMPREHENSION
+
+#Creates a list from the existing list
+>>>l=[elements for elements in "Good Afternoon"]
+>>>l
+       ['G', 'o', 'o', 'd', ' ', 'A', 'f', 't', 'e', 'r', 'n', 'o', 'o', 'n']
+
+SETS
+
+#unordered
+#so index is not there
+#duplicates are not allowed
+#Mutable
+#different data types are allowed
+
+>>>s={1,2.3,6}
+>>>s
+      {1, 2.3, 6}
+>>>type(s)
+      <class 'set'>
+>>>s={1,2,3,3,2,2}
+>>>s
+      {1, 2, 3}
+
+FUNCTIONS OF SETS
+
+1. set.add(element) = adds the element at any position
+>>>s1={1,2,3}
+>>>s1.add(33)
+>>>s1
+      {1, 2, 3, 33}
+>>>s1.add(90)
+>>>s1
+      {1, 2, 3, 33, 90}
+>>>s1.add(88)
+>>>s1
+      {1, 2, 3, 33, 88, 90}
+>>>s1.add(10)
+>>>s1
+      {1, 2, 3, 33, 10, 88, 90}
+
+2. set.update([set of elements]) = updates the set of elements at any position
+>>>s1={1,2,3,4.5,"pp"}
+>>>s1
+      {'pp', 1, 2, 3, 4.5}
+>>>s1.update([10,20])
+>>>s1
+      {'pp', 1, 2, 3, 4.5, 20, 10}
+
+3. set.discard(element) = discards the element specified
+>>>s1.discard("pp")
+>>>s1   
+      {1, 2, 3, 4.5}
+>>>s1.discard(22)
+       no error
+
+4.set.remove(element) = removes the element specified
+>>>s1.remove(1)    
+>>>s1    
+      {2, 3, 4.5}
+>>>s1.remove(22)  
+	Traceback (most recent call last):
+ 	 File "<pyshell#7>", line 1, in <module>
+   	 s1.remove(22)
+	KeyError: 22
+
+5.set1.union(set2) = joins both the sets 
+>>>s1={1,2,3}   
+>>>s2={4,5,6}    
+>>>s1|s2
+      {1, 2, 3, 4, 5, 6}
+>>>s1.union(s2)
+      {1, 2, 3, 4, 5, 6}
+
+6.set1.intersection(set2) = displays common elements
+>>>s1={1,2,3,4,5}
+>>>s2={3,4,6,7,1}
+>>>s2
+     {1, 3, 4, 6, 7}
+>>>s1&s2
+    {1, 3, 4}
+>>>s1.intersection(s2)
+     {1, 3, 4}
+
+7.set1.difference(set2) = it will perform difference i.e removes the common elements from 
+                                        the set 1 and displays the set1
+>>>s1={1,2,3,4,5}    
+>>>s2={1,3,4,6,7}
+>>>s1-s2
+      {2, 5}
+>>>s1.difference(s2)
+      {2, 5}
+8.set1.issuperset(set2) = checks whether the set1 is a super set of set2
+>>>s1={1,2,3}    
+>>>s2={1,2,3,4,5,6}    
+>>>s1.issuperset(s2)    
+       False
+>>>s1={1,2,3,4,5,6,8,7,9,35}  
+>>>s1.issuperset(s2)
+       True
+
+9.set1.symmetric_difference(set2) = it gives the uncommon elements from both sets
+>>>s1^s2
+    {67, 4, 5, 6, 45, 88}
+>>>s1.symmetric_difference(s2)
+    {67, 4, 5, 6, 45, 88}
+
+TUPLES
+
+#ordered
+#unchangeable
+#cannot include or remove items
+#duplicates are allowed    count() is valid
+#count() and index() methods are valid
+#different data types are allowed
+
+>>>t=(3,4,5,5.6,"ohh")
+>>>t
+      (3, 4, 5, 5.6, 'ohh')
+>>>type(t)
+       <class 'tuple'>
+>>>t=(4,5,3,4,5.6,"ohh",3)
+>>>t.count(4)
+       2
+>>>t.index(4)   // gives index of 1st occurence
+      0
+TUPLE TO  LIST 
+>>>t=(1,2,3,4.5,"ppo")   
+>>>t    
+       (1, 2, 3, 4.5, 'ppo')
+>>>l=list(t)    
+>>>l
+      [1, 2, 3, 4.5, 'ppo']
+
+LIST TO TUPLE
+>>>tuple1=tuple(l)
+>>>tuple1
+      [1, 2, 3, 4.5, 'ppo']
+
+NESTING OF TUPLES
+>>>t1=(1,2,3)
+>>>t2=(4,5,6)
+>>>t3=(t1,t2)
+>>>t3
+       ((1, 2, 3), (4, 5, 6))
+
+DICTIONARIES
+
+#dictionary contains elements with 2 units i.e "KEY and VALUES"
+#keys must be unique
+
+>>>d={1:"hello",2:"good",3:"mrng"}
+>>>d
+      {1: 'hello', 2: 'good', 3: 'mrng'}
+>>>type(d)
+       <class 'dict'>
+>>>d[1]
+       'hello'
+>>>d[2]
+       'good'
+
+FUNCTIONS
+
+>>>d.keys()
+       dict_keys([1, 2, 3])
+>>>d.values()
+       dict_values(['hello', 'good', 'mrng'])
+>>>d.items()
+       dict_items([(1, 'hello'), (2, 'good'), (3, 'mrng')])
+>>>d.get(1)
+       'hello'
+>>>d.pop(1)
+       'hello'
+>>>d.popitem(): removes recently added item
+        d.update({4:"hii"})
+        d
+       {1: 'hello', 2: 'good', 3: 'mrng',4: 'hii'}
+        d.popitem()
+        (4, 'hii')
+>>>setdefault(): if the key is not in dict it will be added or else no change will be done
+     1.#type1: new value is appended .both key and value are given
+         >>>dict={'a':'apple','b':'ball','c':'cat'}
+          >>>dict.setdefault('d','dog')
+                 'dog'
+          >>>dict
+                { 'a': 'apple', 'b': 'ball', 'c': 'cat', 'd': 'dog'}
+
+      2.#type2: already present key and value are given.so no changes
+         >>>dict.setdefault('a','apple')
+                 'apple'
+         >>>dict
+               {'a': 'apple', 'b': 'ball', 'c': 'cat', 'd': 'dog'}
+
+      3.#type3: only key is given which is already present
+           >>>dict.setdefault('a')
+                  'apple'
+            >>>dict
+                  {'a': 'apple', 'b': 'ball', 'c': 'cat', 'd': 'dog'}
+
+      4.#type4: only key is given which is not present .so value is taken as none
+          >>>dict.setdefault('e')
+           >>>dict
+                  {'a': 'apple', 'b': 'ball', 'c': 'cat', 'd': 'dog', 'e': None}
+
+CREATE DICT FROM ITERABLES(LIST,TUPLE,RANGE)
+
+#d.fromkeys(iterables,value)....value is optional
+
+>>>dict.fromkeys(l)
+    {'hi': None, 'hello': None}
+>>>dict.fromkeys(l,20)
+    {'hi': 20, 'hello': 20}
+>>>{}.fromkeys(l,100)
+    {'hi': 100, 'hello': 100}
+
+
+
