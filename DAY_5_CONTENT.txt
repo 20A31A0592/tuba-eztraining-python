@@ -1,0 +1,142 @@
+RANDOM MODULE
+
+IMPORT RANDOM
+sample(iterable,number)  //gives randomnly the number of elements // does not support set
+***because a set is ordered
+shuffle(iterable)   //does not support set,tuple,string
+randint(start no. , end no.)
+random() // gives a number between 0.0 to 1.0 but never gives 1.0 as output
+choice() //prints any random element from the iterable //does not support set
+choices(s,k=1) //applicable for both list and string //only k is allowed
+uniform() //works with float numbers
+
+FINDING OUT THE FUNCTIONS OF A MODULE
+dir(random) or dir(r) // gives list of functions in random module
+
+CALENDAR MODULE
+
+IMPORT CALENDAR
+calendar.calendar(year) // displays the complete calendar of the year
+calendar.month(year,month) //displays the particular month
+calendar.setfirstweekday(calendar.DAY) 
+calendar.calendar(year)                                //changes the starting day of the week
+
+DISPLAY DATE MONTH
+
+IMPORT DATETIME
+
+variable=datetime.datetime.now() //gives current date and time with milliseconds
+          //          datetime.datetime(2023, 2, 3, 23, 9, 55, 478210)
+variable=variable.strftime("%y") #lower case
+          //          	 dat=dat.strftime("%y")
+		dat
+		'23'
+variable=variable.strftime("%Y") #upper case
+         //              dat=dat.strftime("%Y")
+prints year short and long version
+
+FUNCTIONS IN PYTHON
+
+Classifications : 
+1. predefined functions
+2. user defined functions
+#for code reusability we use functions
+#lets say we want to use a particular concept multiple times in our program instead of writing
+#the same code many times we can write it once and include that inside a function and can 
+#call the function wherever we need it
+Types:
+1.functions without arguments and without return value
+2.                    ''                          and with return value
+3. functions with arguments and without return value
+4.                  ''                          and   with return value
+
+example1: without argument and without return
+def sample():      #function definition or description
+                print("hello")
+                print("hi")
+sample()         # function call
+print("good")
+sample()
+
+#multiplication of 3 numbers using functions
+
+def multi():
+                a=int(input("enter a:"))
+                b=int(input("enter b:"))
+                c=int(input("enter c:"))
+                mul=a*b*c
+                print(mul)
+multi()
+
+
+example2 : without argument and with return value
+def sum():
+                a=int(input("enter a:"))
+                b=int(input("enter b:"))
+                c=int(input("enter c:"))
+                add=a+b+c
+                return add
+result=sum()
+print(result)
+
+example3 : with arguments and without return value
+#dynamic i/p
+	def diff(d,e,f):
+                		sub=d-e-f
+                		print(sub)
+a=int(input("enter a:"))
+b=int(input("enter b:"))
+c=int(input("enter c:"))
+diff(a,b,c)
+
+#static i/p
+	def diff(d,e,f):
+                		sub=d-e-f
+                		print(sub)
+	diff(4,2,1)
+
+example4 : with arguments and with return value
+#dynamic i/p
+def prod(d,e,f):
+                mul=d*e*f
+                return mul
+a=int(input("enter a:"))
+b=int(input("enter b:"))
+c=int(input("enter c:"))
+result=prod(a,b,c)
+print(result)
+
+#static i/p
+def prod(d,e,f):
+                sub=d*e*f
+                return sub
+result = prod(4,2,1)
+print(result)
+
+RECURSION
+
+#a function calling itself is recursive function 
+
+def display():
+                n=int(input("enter:"))
+                if(n==1):
+                                display()
+                else:
+                                print("done!")
+display()
+
+#addition subtraction of 2 numbers in 1 function
+
+def add_sub(a,b):
+                add=a+b
+                sub=a-b
+                return add,sub
+a,s=list(map(int,input("enter:").split()))
+result=add_sub(a,s)
+print(result)
+
+#
+
+
+
+
